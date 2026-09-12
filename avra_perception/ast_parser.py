@@ -42,7 +42,7 @@ class JavaASTParser:
         self.parser = tree_sitter.Parser()
 
         # Bind the java grammer into parser instance 
-        self.parser.set_language(self.langage)
+        self.parser.set_language(self.language)
 
     def parse_to_graph (self,raw_code:str) -> AstGraph:
         """Transform source code into mathemetical graph of nodes and edges """
