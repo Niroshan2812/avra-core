@@ -1,0 +1,26 @@
+# --- Gateway & Event Broker ---
+fastapi==0.111.0               
+uvicorn==0.30.1                
+kafka-python==2.0.2            
+
+# --- Milestone 1: Perception (AST & Deep Learning) ---
+tree-sitter==0.21.3            # Core library for generating Abstract Syntax Trees
+tree-sitter-java==0.21.0       # Specific grammar for parsing Java source files
+torch==2.3.0                   # PyTorch tensor library (CPU version is fine for inference)
+torch-geometric==2.5.3         # GNN library to analyze the structural topology of the AST
+transformers==4.41.2           # Hugging Face library to load and execute CodeBERT
+
+# --- Milestone 2: Reasoning (Graphs) ---
+networkx==3.3                  # Mathematical graph library to compute CFG/PDG reachability
+
+# --- Milestone 3: Action (Memory & Generation) ---
+pydantic==2.7.2                # Enforces strict OOP data contracts and JSON validation
+openai==1.30.5                 # Client for interacting with LLMs (compatible with vLLM/Ollama)
+qdrant-client==1.9.1           # Vector Database SDK for semantic memory storage and k-NN recall
+
+# --- Milestone 4: Execution (Cybersecurity Sandboxing) ---
+docker==7.1.0                  # Python SDK to interact with the host machine's Docker daemon
+
+# --- Core Utilities ---
+python-dotenv==1.0.1           # Loads secrets securely from the .env file
+pytest==8.2.1                  # Testing framework for validating the agent's logic
