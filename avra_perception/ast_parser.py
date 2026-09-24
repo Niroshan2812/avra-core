@@ -31,7 +31,7 @@ class JavaASTParser:
     """
     Encap the tree-sitter C-bidings to parse raw Java Code into a serialized graph structure opt for DL ingestion
     """
-
+    previous_sibling_id = 0
     def __init__(self) -> None:
         # Initialized raw java grammer 
         # complies the specific syntax rule required to understand Java constucts 
@@ -105,12 +105,11 @@ class JavaASTParser:
                 )
             )
 
-        # iterate over all immediate children of the current Tree-sitter node 
+        # iterate over all immediate children of the current tree sitter node 
         for i, child in enumerate(ts_node.children):
-            # Recursively process each child, parsing the current node's ID as the new Parent_id
-            self._traverse_and_build(child, code_bytes, graph, counter, current_id)
+            # recursively process each child, parsing the current node's id as the new parent_id 
+            self._traverse_and_build(child, code_bytes, graph, counter,current_id)
 
-            # For capturing the execurtion oder flow link sibling nodes sequently so it will be the foundation for the 
-            # control flow graph 
+            # for capture the execurtion over flow link siblings nodes sequently so it willl be the foundation for the control flow graph 
             if i > 0:
-                previous_sibling_id = current_id + i
+                self.previous_sibling_id = current_id + i
